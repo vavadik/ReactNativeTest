@@ -7,6 +7,9 @@ import {
 import PropTypes from 'prop-types'
 
 export default class Counter extends Component {
+    static navigationOptions = {
+        title: 'Counter',
+    };
     static propTypes = {
         value: PropTypes.number.isRequired,
         onIncrement: PropTypes.func.isRequired,
