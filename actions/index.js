@@ -9,3 +9,7 @@ export const decrement = () => {
 export const helloAlert = () => {
     return {type: 'helloAlert'};
 };
+
+export const helloInput = (text) => {
+    return {type: 'helloInput', text: text};
+};

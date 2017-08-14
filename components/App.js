@@ -5,7 +5,9 @@ import {
 } from 'react-native';
 import {Provider} from 'react-redux'
 import {createStore} from 'redux'
-import {StackNavigator} from 'react-navigation'
+import {
+    TabNavigator,
+} from 'react-navigation'
 
 import CounterApp from '../containers/CounterApp'
 import HelloApp from '../containers/HelloApp'
@@ -15,11 +17,11 @@ export default class App extends Component {
     render() {
         let store = createStore(reducers);
         return (
-            <View style={styles.view}>
-                <Provider store={store}>
+            <Provider store={store}>
+                <View style={styles.view}>
                     <NavigationApp/>
-                </Provider>
-            </View>
+                </View>
+            </Provider>
         );
     }
 }
@@ -31,7 +33,13 @@ const styles = StyleSheet.create({
     },
 });
 
-const NavigationApp = StackNavigator({
+const NavigationApp = TabNavigator({
     Counter: {screen: CounterApp},
     Hello: {screen: HelloApp},
+}, {
+    tabBarOptions: {
+        activeTintColor: '#e91e63',
+        tabBarPosition: 'bottom',
+    },
+    tabBarPosition: 'bottom',
 });

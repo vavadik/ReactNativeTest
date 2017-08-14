@@ -1,21 +1,34 @@
-import React, {Component} from 'react';
 import {connect} from 'react-redux'
 
 import OneFieldForm from '../components/OneFieldForm'
-import {helloAlert} from '../actions'
+import {
+    helloAlert,
+    helloInput,
+} from '../actions'
 
-export default class HelloApp extends Component {
-    static buttonCallback = (value) => {
-        return alert(`Hello ${value}`);
-    };
-
-    static navigationOptions = {
-        title: 'Hello App',
-    };
-
-    render() {
-        return (
-            <OneFieldForm labelText="Enter your name" buttonCallback={HelloApp.buttonCallback} buttonTitle="Say Hello"/>
-        )
+const mapStateToProps = (state) => {
+    return {
+        labelText: 'Enter your name:',
+        placeholder: 'Name',
+        buttonTitle: 'Press me',
+        inputValue: state.hello,
     }
-}
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        buttonCallback: () => {
+            dispatch(helloAlert())
+        },
+        inputChange: (inputValue) => {
+            dispatch(helloInput(inputValue))
+        },
+    }
+};
+
+let combined = connect(mapStateToProps, mapDispatchToProps)(OneFieldForm);
+combined.navigationOptions = {
+    title: 'Hello App',
+};
+
+export default combined;
