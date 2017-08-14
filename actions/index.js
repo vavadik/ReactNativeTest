@@ -13,3 +13,15 @@ export const helloAlert = () => {
 export const helloInput = (text) => {
     return {type: 'helloInput', text: text};
 };
+
+export const deleteUser = (userId) => {
+    return {type: 'deleteUser', userId: userId};
+};
+
+export const addUser = () => {
+    return {type: 'addUser'};
+};
+
+export const initUserData = () => {
+    return {type: 'initUserData'};
+};

@@ -11,6 +11,7 @@ import {
 
 import CounterApp from '../containers/CounterApp'
 import HelloApp from '../containers/HelloApp'
+import UserListApp from '../containers/UserListApp'
 import reducers from '../reducers'
 
 export default class App extends Component {
@@ -29,17 +30,21 @@ export default class App extends Component {
 const styles = StyleSheet.create({
     view: {
         flex: 1,
-        backgroundColor: 'skyblue',
+        backgroundColor: '#DBE9EE',
     },
 });
 
 const NavigationApp = TabNavigator({
     Counter: {screen: CounterApp},
     Hello: {screen: HelloApp},
+    UserList: {screen: UserListApp},
 }, {
     tabBarOptions: {
-        activeTintColor: '#e91e63',
-        tabBarPosition: 'bottom',
+        activeTintColor: '#DBE9EE',
+        inactiveBackgroundColor: '#114B5F',
+        activeBackgroundColor: '#1C7293',
+        style: {
+            backgroundColor: '#1C7293',
+        },
     },
-    tabBarPosition: 'bottom',
 });
