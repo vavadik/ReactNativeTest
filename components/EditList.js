@@ -1,13 +1,14 @@
 import React, {Component, AsyncStorage} from 'react'
 import {
     FlatList,
-    Button,
     TouchableHighlight,
     View,
     Text,
+    Button,
     StyleSheet,
 } from 'react-native'
 import PropTypes from 'prop-types'
+import Colors from '../styles/Colors'
 
 export default class EditList extends Component {
     static propTypes = {
@@ -37,9 +38,9 @@ export default class EditList extends Component {
                             return (
                                 <View key={item.key}>
                                     <TouchableHighlight onPress={() => alert('press item')}>
-                                        <Text>{item.title}</Text>
+                                        <Text style={{color: Colors.secondaryText,}}>{item.title}</Text>
                                     </TouchableHighlight>
-                                    <Button title="Delete" onPress={() => this.props.deleteCallback(item.key)}/>
+                                    <Button color={Colors.primaryLight} title="Delete" onPress={() => this.props.deleteCallback(item.key)}/>
                                 </View>
                             )
                         }}
@@ -66,11 +67,11 @@ const style = StyleSheet.create({
     },
     addButton: {
         flex: 1,
-        backgroundColor: '#1C7293',
+        backgroundColor: Colors.primary,
     },
     addButtonText: {
         flex: 1,
-        color: '#DBE9EE',
+        color: Colors.primaryText,
         textAlign: 'center',
         fontWeight: 'bold',
         fontSize: 25,

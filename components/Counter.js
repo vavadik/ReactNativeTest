@@ -5,6 +5,7 @@ import {
     Button
 } from 'react-native'
 import PropTypes from 'prop-types'
+import Colors from '../styles/Colors'
 
 export default class Counter extends Component {
     static navigationOptions = {
@@ -24,8 +25,8 @@ export default class Counter extends Component {
         return (
             <View>
                 <Text>{this.props.value}</Text>
-                <Button title="+" onPress={this.props.onIncrement}/>
-                <Button title="-" onPress={this.props.onDecrement}/>
+                <Button color={Colors.primaryLight} title="+" onPress={this.props.onIncrement}/>
+                <Button color={Colors.primaryLight} title="-" onPress={this.props.onDecrement}/>
             </View>
         )
     }
