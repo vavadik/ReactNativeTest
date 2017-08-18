@@ -4,13 +4,16 @@ import EditList from '../components/EditList'
 import {
     deleteUser,
     addUser,
-    initUserData,
 } from '../actions'
 
 const mapStateToProps = (state) => {
     return {
         listData: state.userList.data,
         lastId: state.userList.lastId,
+        modalFields: [
+            {key: 'name', title: 'Name'},
+            {key: 'money', title: 'Money'},
+        ],
     }
 };
 
@@ -19,12 +22,9 @@ const mapDispatchToProps = (dispatch) => {
         deleteCallback: (userId) => {
             dispatch(deleteUser(userId))
         },
-        addCallback: () => {
-            dispatch(addUser())
+        addCallback: (name, money) => {
+            dispatch(addUser(name, money))
         },
-        initData: () => {
-            dispatch(initUserData())
-        }
     }
 };
 

@@ -28,8 +28,7 @@ export default class App extends Component {
         let store = createStore(
             reducers,
             compose(
-                applyMiddleware(logger),
-                autoRehydrate()
+                applyMiddleware(logger)
             )
         );
         persistStore(store, {storage: AsyncStorage});

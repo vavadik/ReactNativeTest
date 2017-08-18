@@ -18,10 +18,6 @@ export const deleteUser = (userId) => {
     return {type: 'deleteUser', userId: userId};
 };
 
-export const addUser = () => {
-    return {type: 'addUser'};
-};
-
-export const initUserData = () => {
-    return {type: 'initUserData'};
+export const addUser = (name, money) => {
+    return {type: 'addUser', name: name, money: money};
 };
